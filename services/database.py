@@ -20,3 +20,4 @@ async def create_tables(db_path: str = DB_PATH):
                 version TEXT
             );
         ''')
+        await db.commit()
