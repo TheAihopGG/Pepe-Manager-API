@@ -14,16 +14,17 @@ API:
 /api/package/?id=<id> or /api/package/?name=<name> - returns package info (METHOD: POST)
 """
 
+basicConfig(
+    handlers=(FileHandler(LOGS_PATH), StreamHandler()),
+    format='%(levelname)s]: %(message)s',
+    level=INFO
+)
+
 app = FastAPI()
 
 @app.get('/')
 async def index() -> PlainTextResponse:
-    return PlainTextResponse("""
-        API:
-        / - return this text
-        /api/packages/?field=<field> - returns packages` field (METHOD: POST)
-        /api/package/?id=<id> or /api/package/?name=<name> - returns package info (METHOD: POST)
-    """)
+    return PlainTextResponse(__doc__)
 
 @app.post('/api/packages/')
 async def get_packages(field: str) -> JSONResponse:
@@ -39,13 +40,27 @@ async def get_packages(field: str) -> JSONResponse:
         return JSONResponse({'detail':'Field must be name or author'}, status_code=404)
 
 
-@app.post('/api/package/')
+@app.post('/api/package_by_field/')
 async def get_package(field: str, value: str) -> JSONResponse:
     async with connect(DB_PATH) as db:
         result: list[int, str, str] = await (await db.execute(f'''
             SELECT id, author, version FROM packages
             WHERE {field}=?
         ''', (value,))).fetchone()
+        if result:
+            return JSONResponse({
+                'package':dict(zip(['id', 'author', 'version'], result))
+            })
+        else:
+            return JSONResponse({'detail':'Package not found'}, status_code=404)
+
+@app.post('/api/package/')
+async def get_package(name: str, version: str) -> JSONResponse:
+    async with connect(DB_PATH) as db:
+        result: list[int, str, str] = await (await db.execute(f'''
+            SELECT id, author, version FROM packages
+            WHERE name=? AND version=?
+        ''', (name, version))).fetchone()
         if result:
             return JSONResponse({
                 'package':dict(zip(['id', 'author', 'version'], result))
