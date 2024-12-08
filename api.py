@@ -7,7 +7,7 @@ from services.database import create_tables
 from data.settings import *
 from logging import *
 
-"""
+__doc__ = """
 GET /api/help/ - returns this text
 
 POST /api/packages/?field=<field> - returns this field from each package
