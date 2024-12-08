@@ -32,6 +32,11 @@ unicorn api:app
 
 (soon)
 
+# Technologies
+
+- [Python 3.12](https://www.python.org/)
+- [Sqlite3](https://www.sqlite.org/)
+
 # Credits
 
 - [theaihopgg](https://github.com/TheAihopGG) - the realization
