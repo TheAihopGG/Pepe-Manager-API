@@ -1,6 +1,6 @@
 # What is pepe manager api?
 
-Pepe manager api is an api for pepe manager, and pepe manager is my test project. I have created it to practice fastapi and requests. See also [pepe manager]().
+Pepe manager api is an api for pepe manager, and pepe manager is my test project. I have created it to practice fastapi and requests. See also [pepe manager](https://github.com/TheAihopGG/pepe_manager).
 
 # Setup
 
@@ -34,4 +34,4 @@ unicorn api:app
 
 # Credits
 
-- [theaihopgg](https://github.com/TheAihopGG) - realization
+- [theaihopgg](https://github.com/TheAihopGG) - the realization
