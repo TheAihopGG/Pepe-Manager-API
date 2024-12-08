@@ -8,16 +8,24 @@ Pepe manager api is an api for pepe manager, and pepe manager is my test project
 
 At first, download the [latest release]() for linux
 
-To launch, install requirements:
+Install requirements:
 
 ```bash
 pip3 install -r requirements.txt
 ```
 
-And launch app with using this command:
+After, execute:
 
 ```bash
-unicorn main:app
+python3 ./api.py
+```
+
+This action will creates tables in database
+
+And launch the api with using this command:
+
+```bash
+unicorn api:app
 ```
 
 ## Windows
