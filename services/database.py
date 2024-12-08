@@ -17,6 +17,8 @@ async def create_tables(db_path: str = DB_PATH):
                 id INTEGER PRIMARY KEY,
                 name TEXT,
                 author TEXT,
-                version TEXT
+                version TEXT,
+                url TEXT
             );
         ''')
+        await db.commit()
