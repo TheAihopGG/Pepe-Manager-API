@@ -1,7 +1,6 @@
 from aiosqlite import connect
-from fastapi import FastAPI, Query
-from fastapi.responses import JSONResponse, Response, PlainTextResponse
-from fastapi.requests import Request
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse, PlainTextResponse
 from asyncio import run
 from services.database import create_tables
 from data.settings import *
@@ -72,3 +71,6 @@ async def get_package(name: str, version: str) -> JSONResponse:
             })
         else:
             return JSONResponse({'detail':'Package not found'}, status_code=404)
+
+if __name__ == '__main__':
+    run(create_tables())
