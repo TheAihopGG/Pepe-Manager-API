@@ -14,6 +14,7 @@ async def create_tables(db_path: str = DB_PATH):
             CREATE TABLE IF NOT EXISTS packages (
                 id INTEGER PRIMARY KEY,
                 name TEXT,
+                description TEXT,
                 author TEXT,
                 version TEXT,
                 url TEXT

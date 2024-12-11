@@ -36,7 +36,7 @@ async def get_package_by_field(field: str, value: str) -> JSONResponse:
             ''', (value,))).fetchone()
             if result:
                 return JSONResponse({
-                    'package':dict(zip(['id', 'name', 'author', 'version', 'url'], result))
+                    'package':dict(zip(['id', 'name', 'description', 'author', 'version', 'url'], result))
                 })
             else:
                 return JSONResponse({'detail':'Package not found'}, status_code=404)
@@ -52,7 +52,7 @@ async def get_package(name: str, version: str) -> JSONResponse:
         ''', (name, version))).fetchone()
         if result:
             return JSONResponse({
-                'package':dict(zip(['id', 'name', 'author', 'version', 'url'], result))
+                'package':dict(zip(['id', 'name', 'description', 'author', 'version', 'url'], result))
             })
         else:
             return JSONResponse({'detail':'Package not found'}, status_code=404)
