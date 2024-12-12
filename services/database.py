@@ -1,7 +1,6 @@
 from aiosqlite import connect
 from data.settings import DB_PATH
 
-
 async def create_tables(db_path: str = DB_PATH):
     """
     Creates these tables: packages
