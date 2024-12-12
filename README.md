@@ -27,10 +27,11 @@ unicorn api:app
 
 (soon)
 
-# Technologies
+# Technologies & Frameworks
 
-- [Python 3.12](https://www.python.org/)
-- [Sqlite3](https://www.sqlite.org/)
+- [python 3.12](https://www.python.org/)
+- [sqlite3](https://www.sqlite.org/)
+- [fastapi](https://fastapi.tiangolo.com/)
 
 # Credits
 
