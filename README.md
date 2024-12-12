@@ -35,3 +35,5 @@ unicorn api:app
 # Credits
 
 - [@TheAihopGG](https://github.com/TheAihopGG) - the realization
+
+Also see a list of [contributors](https://github.com/TheAihopGG/pepe_manager_api/graphs/contributors)
