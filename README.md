@@ -1,34 +1,29 @@
-# What is pepe manager api?
+# What is pepe manager API?
 
-Pepe manager api is an api for pepe manager, and pepe manager is my test project. I have created it to practice fastapi and requests. See also [pepe manager](https://github.com/TheAihopGG/pepe_manager).
+Pepe manager API is API for pepe manager, my test project. I have created it to practice fastapi and requests. [See it](https://github.com/TheAihopGG/pepe_manager).
 
 # Setup
 
-## Linux
+## 🐧 Linux
 
-At first, download the [latest release]() for linux
+At first, download the [latest release](https://github.com/TheAihopGG/pepe_manager_api/releases/latest) for linux
 
-Install requirements:
-
+1. Install requirements:
 ```bash
 pip3 install -r requirements.txt
 ```
 
-After, execute:
-
+2. Execute api.py file to create tables in database:
 ```bash
-python3 ./api.py
+python3 api.py
 ```
 
-This action will creates tables in database
-
-And launch the api with using this command:
-
+3. And launch the api with using this command:
 ```bash
 unicorn api:app
 ```
 
-## Windows
+## 🪟 Windows
 
 (soon)
 
@@ -39,4 +34,4 @@ unicorn api:app
 
 # Credits
 
-- [theaihopgg](https://github.com/TheAihopGG) - the realization
+- [@TheAihopGG](https://github.com/TheAihopGG) - the realization
