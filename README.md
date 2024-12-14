@@ -10,21 +10,21 @@ At first, download the [latest release](https://github.com/TheAihopGG/pepe_manag
 
 1. Install requirements:
 
-```bash
-pip3 install -r requirements.txt
-```
+    ```bash
+    pip3 install -r requirements.txt
+    ```
 
 2. Execute api.py file to create tables in database:
 
-```bash
-python3 api.py
-```
+    ```bash
+    python3 api.py
+    ```
 
 3. And launch the api with using this command:
 
-```bash
-unicorn api:app
-```
+    ```bash
+    unicorn api:app
+    ```
 
 ### 🪟 Windows
 
