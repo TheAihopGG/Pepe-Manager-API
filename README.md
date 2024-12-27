@@ -1,5 +1,7 @@
 # What is pepe manager API?
 
+![status](https://img.shields.io/badge/status-freezed-blue.svg)
+
 Pepe manager API is API for pepe manager, my test project. I have created it to practice fastapi and requests. [See it](https://github.com/TheAihopGG/pepe_manager).
 
 ## Setup
