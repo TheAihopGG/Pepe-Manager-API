@@ -1,12 +1,12 @@
 # What is pepe manager API?
 
-Pepe manager API is API for pepe manager, my test project. I have created it to practice fastapi and requests. [See it](https://github.com/TheAihopGG/pepe_manager).
+Pepe manager API is API for pepe manager, my test project. I have created it to practice fastapi and requests. [See it](https://github.com/TheAihopGG/Pepe-Manager).
 
 ## Setup
 
 ### 🐧 Linux
 
-At first, download the [latest release](https://github.com/TheAihopGG/pepe_manager_api/releases/latest) for linux
+At first, download the [latest release](https://github.com/TheAihopGG/Pepe-Manager-Api/releases/latest) for linux
 
 1. Install requirements:
 
