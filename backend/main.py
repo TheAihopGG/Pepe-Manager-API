@@ -1,8 +1,19 @@
 import aiosqlite
+import logging
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from backend.core import cfg
 from backend.services import Database
+
+logging.basicConfig(
+    handlers=(
+        logging.FileHandler(cfg["logs_path"], mode="w"),
+        logging.StreamHandler(),
+    ),
+    format="%(asctime)s: %(levelname)s: %(message)s",
+    datefmt="%m.%d.%Y %H:%M:%S",
+    level=logging.INFO,
+)
 
 
 class App(FastAPI):
