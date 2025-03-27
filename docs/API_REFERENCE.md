@@ -8,6 +8,7 @@
 - name
 - description
 - version
+- author_name
 - created_at
 - updated_at
 
