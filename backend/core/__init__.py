@@ -8,6 +8,7 @@ class RoutersPrefixes(TypedDict):
 
 class Configuration(TypedDict):
     database_path: str
+    logs_path: str
     host: str
     port: int
     routers_prefixes: RoutersPrefixes
