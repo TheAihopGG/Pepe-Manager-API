@@ -25,3 +25,6 @@ class Database:
             COMMIT TRANSACTION;
             """
         )
+
+
+__all__ = "Database"
