@@ -1,3 +1,4 @@
+import backend.core.models as models
 from typing import TypedDict
 from json import load
 
@@ -19,4 +20,5 @@ cfg: Configuration = load(open("./backend/core/configuration.json"))
 __all__ = (
     "cfg",
     "Configuration",
+    "models",
 )
