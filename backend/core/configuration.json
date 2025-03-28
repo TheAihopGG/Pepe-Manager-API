@@ -1,0 +1,10 @@
+{
+    "database_path": "./backend/core/database.db",
+    "logs_path": "./logs.log",
+    "host": "localhost",
+    "port": 8000,
+    "debug": true,
+    "routers_prefixes": {
+        "api": "api_v1"
+    }
+}
