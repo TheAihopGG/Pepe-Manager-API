@@ -109,7 +109,6 @@ class TestPackageCRUD(unittest.IsolatedAsyncioTestCase):
     async def test_get_packages_infos(self):
         session = await aiosqlite.connect(":memory:")
         await Database.create_tables(session=session)
-        self.maxDiff = None
         created_packages = [
             models.Package(
                 id=1,
