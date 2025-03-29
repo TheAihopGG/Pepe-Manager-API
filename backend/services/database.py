@@ -51,7 +51,7 @@ class Database:
                 created_at INTEGER,
                 updated_at INTEGER
             );
-            CREATE INDEX package_idx ON packages(id);
+            CREATE INDEX IF NOT EXISTS package_idx ON packages(id);
             """
         )
 
