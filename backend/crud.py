@@ -1,7 +1,7 @@
 import aiosqlite
 from time import time
-from .core import models
-from .services import Database
+from core import models
+from services import Database
 
 
 class CRUD:
@@ -15,7 +15,7 @@ class CRUD:
             package_data: bytes,
             *,
             session: aiosqlite.Connection,
-        ) -> models.Package | None:
+        ) -> bool:
             package = models.Package(
                 id=0,
                 name=package_name,
@@ -30,11 +30,8 @@ class CRUD:
                 "VALUES (:name, :description, :version, :author_name, :data, :created_at, :updated_at)",
                 package._asdict(),
             ) as cursor:
-                if cursor.rowcount:
-                    await session.commit()
-                    return package
-                else:
-                    return None
+                await session.commit()
+                return bool(cursor.rowcount)
 
         @staticmethod
         async def get(
@@ -43,8 +40,7 @@ class CRUD:
             session: aiosqlite.Connection,
         ) -> models.Package | None:
             async with session.execute(
-                "SELECT (id, name, description, version, author_name, data, created_at, updated_at)"
-                "FROM packages WHERE id=?",
+                "SELECT * FROM packages WHERE id=?",
                 (package_id,),
             ) as cursor:
                 result = await cursor.fetchone()
@@ -62,7 +58,7 @@ class CRUD:
             session: aiosqlite.Connection,
         ) -> models.PackageInfo | None:
             async with session.execute(
-                "SELECT (id, name, description, version, author_name, created_at, updated_at) FROM packages WHERE id=?",
+                "SELECT id, name, description, version, author_name, created_at, updated_at FROM packages WHERE id=?",
                 (package_id,),
             ) as cursor:
                 result = await cursor.fetchone()
