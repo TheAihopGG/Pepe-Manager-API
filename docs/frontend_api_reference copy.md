@@ -39,19 +39,6 @@ All urls are relative `<domain>://private/api`
 > [!NOTE]
 > This is part of the documentation only for the developers of the front-end of the site.
 
-### Example
-
-|Method|Url|Description|
-|------|---|-----------|
-|GET|`/example`|Example|
-
-Request:
-```json
-{
-    "key": "value"
-}
-```
-
 ### Create Package
 
 |Method|Url|Description|
