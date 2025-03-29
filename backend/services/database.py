@@ -60,4 +60,4 @@ class Database:
         )
 
 
-__all__ = "Database"
+__all__ = ("Database",)
