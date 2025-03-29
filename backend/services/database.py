@@ -50,5 +50,14 @@ class Database:
             """
         )
 
+    @staticmethod
+    @rollback_on_error
+    async def drop_tables(*, session: aiosqlite.Connection):
+        await session.executescript(
+            """
+            DROP TABLE IF EXISTS packages;
+            """
+        )
+
 
 __all__ = "Database"
