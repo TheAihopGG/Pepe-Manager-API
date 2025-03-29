@@ -70,6 +70,24 @@ class CRUD:
                     return None
 
         @staticmethod
+        async def get_packages_infos(
+            name: str,
+            *,
+            session: aiosqlite.Connection,
+        ) -> list[models.PackageInfo] | None:
+            async with session.execute(
+                "SELECT id, name, description, version, author_name, created_at, updated_at FROM packages WHERE name=?",
+                (name,),
+            ) as cursor:
+                result = await cursor.fetchall()
+                if result:
+                    packages_infos = list(map(models.PackageInfo._make, result))
+                    await session.commit()
+                    return packages_infos
+                else:
+                    return None
+
+        @staticmethod
         async def update(
             package_id: int,
             package_name: str | None = None,
