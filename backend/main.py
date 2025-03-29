@@ -21,7 +21,7 @@ class App(FastAPI):
     @asynccontextmanager
     async def lifespan(app: FastAPI):
         async with aiosqlite.connect(cfg["database_path"]) as session:
-            await Database.create_tables(session)
+            await Database.create_tables(session=session)
         yield
 
     def __init__(self):
