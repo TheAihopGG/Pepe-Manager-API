@@ -38,15 +38,11 @@ class Database:
                 description VARCHAR(256),
                 version VARCHAR(32),
                 author_name VARCHAR(32),
+                data BLOB,
                 created_at INTEGER,
                 updated_at INTEGER
             );
-            CREATE TABLE IF NOT EXISTS packages_dates (
-                id INTEGER PRIMARY KEY,
-                package_id INTEGER UNIQUE,
-                data BLOB,
-                FOREIGN KEY (package_id) REFERENCES packages(id)
-            );
+            CREATE INDEX package_idx ON packages(id);
             """
         )
 
@@ -57,6 +53,7 @@ class Database:
             """
             BEGIN TRANSACTION;
             DROP TABLE IF EXISTS packages;
+            DROP INDEX IN EXISTS package_idx;
             """
         )
 
