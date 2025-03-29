@@ -1,8 +1,7 @@
-from fastapi.middleware.cors import CORSMiddleware
 import aiosqlite
 import logging
-
 import uvicorn
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from routers import (
     public_packages,
     private_packages,
@@ -48,9 +47,8 @@ class PrivateApp(FastAPI):
         super().__init__()
         self.include_router(private_packages.router)
         self.add_middleware(
-            CORSMiddleware,
-            allow_origins=cfg["allowed_domains"],
-            allow_methods=["*"],
+            TrustedHostMiddleware,
+            allowed_hosts=cfg["allowed_domains"],
         )
 
 
@@ -58,7 +56,7 @@ app = App()
 
 if __name__ == "__main__":
     uvicorn.run(
-        "backend.main:app",
+        "main:app",
         host=cfg["host"],
         port=cfg["port"],
         reload=True,
