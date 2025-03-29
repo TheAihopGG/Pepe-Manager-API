@@ -1,18 +1,16 @@
-from typing import Callable, Awaitable
-from urllib.parse import urlparse
 from fastapi.middleware.cors import CORSMiddleware
 import aiosqlite
 import logging
-from backend.routers import (
+
+import uvicorn
+from routers import (
     public_packages,
     private_packages,
 )
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import JSONResponse, Response
-from fastapi import status
-from backend.core import cfg
-from backend.services import Database
+from fastapi import FastAPI
+from core import cfg
+from services import Database
 
 logging.basicConfig(
     handlers=(
@@ -57,3 +55,11 @@ class PrivateApp(FastAPI):
 
 
 app = App()
+
+if __name__ == "__main__":
+    uvicorn.run(
+        "backend.main:app",
+        host=cfg["host"],
+        port=cfg["port"],
+        reload=True,
+    )
