@@ -48,7 +48,6 @@ All urls are relative `<domain>://private/api`
 Request:
 ```json
 {
-    "id": "...",
     "name": "...",
     "description": "...",
     "author_name": "...",
