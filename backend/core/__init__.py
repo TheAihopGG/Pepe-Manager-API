@@ -1,4 +1,4 @@
-import backend.core.models as models
+import core.models as models
 from typing import TypedDict
 from json import load
 
