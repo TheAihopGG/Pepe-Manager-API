@@ -4,6 +4,15 @@ from typing import Callable, Awaitable
 
 
 class Database:
+    def memory_connection(function):
+        @wrapper(function)
+        async def wrapper(self):
+            session = await aiosqlite.connect(":memory:")
+            await Database.create_tables(session)
+            return await function(self, session=session)
+
+        return wrapper
+
     @staticmethod
     def rollback_on_error[**P, R](
         function: Callable[P, Awaitable[R]],
