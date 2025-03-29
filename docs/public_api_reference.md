@@ -34,7 +34,7 @@
 
 ## Urls
 
-All urls are relative `<domain>://api_v1`
+All urls are relative `<domain>://public/api`
 
 ### Get Package
 

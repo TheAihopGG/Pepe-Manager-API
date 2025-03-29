@@ -5,6 +5,10 @@
     "port": 8000,
     "debug": true,
     "routers_prefixes": {
-        "api": "api_v1"
-    }
+        "private_packages": "/api/packages",
+        "public_packages": "/api/packages"
+    },
+    "allowed_domains": [
+        "*"
+    ]
 }

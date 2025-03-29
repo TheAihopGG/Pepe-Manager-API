@@ -34,7 +34,7 @@
 
 ## Urls
 
-All urls are relative `<domain>://api_v1`
+All urls are relative `<domain>://private/api`
 
 > [!NOTE]
 > This is part of the documentation only for the developers of the front-end of the site.

@@ -1,10 +1,11 @@
-import core.models as models
+import backend.core.models as models
 from typing import TypedDict
 from json import load
 
 
 class RoutersPrefixes(TypedDict):
-    api: str
+    private_packages: str
+    public_packages: str
 
 
 class Configuration(TypedDict):
@@ -13,6 +14,7 @@ class Configuration(TypedDict):
     host: str
     port: int
     routers_prefixes: RoutersPrefixes
+    allowed_domains: list[str]
 
 
 cfg: Configuration = load(open("./backend/core/configuration.json"))
