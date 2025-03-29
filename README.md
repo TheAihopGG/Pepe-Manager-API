@@ -4,8 +4,9 @@ Pepe manager API is API for pepe manager, my test project. I have created it to 
 
 ## Docs
 
-- [Install](./docs/INSTALL.md)
-- [API Reference](./docs/API_REFERENCE.md)
+- [Install](./docs/install.md)
+- [Public API Reference](./docs/public_api_reference.md)
+- [Frontend API Reference](./docs/frontend_api_reference.md)
 
 ## Technologies & Frameworks
 
