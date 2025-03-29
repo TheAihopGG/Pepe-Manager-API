@@ -55,6 +55,7 @@ class Database:
     async def drop_tables(*, session: aiosqlite.Connection):
         await session.executescript(
             """
+            BEGIN TRANSACTION;
             DROP TABLE IF EXISTS packages;
             """
         )
