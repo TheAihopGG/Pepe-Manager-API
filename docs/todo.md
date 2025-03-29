@@ -1,8 +1,8 @@
 # To-do
 
-- [ ] Create API Reference
-- [ ] Create CRUD
-- [ ] Test CRUD
+- [x] Create API Reference
+- [x] Create CRUD
+- [x] Test CRUD
 - [ ] Create private app
 - [ ] Test private app
 - [ ] Create public app
