@@ -1,9 +1,34 @@
 import aiosqlite
+from functools import wraps
+from typing import Callable, Awaitable
 
 
 class Database:
     @staticmethod
-    async def create_tables(session: aiosqlite.Connection):
+    def rollback_on_error[**P, R](
+        function: Callable[P, Awaitable[R]],
+    ) -> Callable[P, Awaitable[R]]:
+        @wraps(function)
+        async def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
+            session = kwargs.get("session")
+            if not session or not isinstance(session, aiosqlite.Connection):
+                raise ValueError(
+                    "Session must be an aiosqlite.Connection and provided as keyword argument"
+                )
+            try:
+                result = await function(*args, **kwargs)
+            except Exception as err:
+                await session.execute("ROLLBACK TRANSACTION")
+                raise err
+            else:
+                await session.execute("COMMIT TRANSACTION")
+                return result
+
+        return wrapper
+
+    @staticmethod
+    @rollback_on_error
+    async def create_tables(*, session: aiosqlite.Connection):
         return await session.executescript(
             """
             BEGIN TRANSACTION;
@@ -22,7 +47,6 @@ class Database:
                 data BLOB,
                 FOREIGN KEY (package_id) REFERENCES packages(id)
             );
-            COMMIT TRANSACTION;
             """
         )
 
