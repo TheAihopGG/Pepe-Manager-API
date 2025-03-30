@@ -48,11 +48,11 @@ All urls are relative `<domain>://private/api`
 Request:
 ```json
 {
-    "name": "...",
-    "description": "...",
-    "author_name": "...",
-    "version": "...",
-    "data": "...",
+    "package_name": "...",
+    "package_description": "...",
+    "package_author_name": "...",
+    "package_version": "...",
+    "package_data": "...",
 }
 ```
 
@@ -65,7 +65,7 @@ Request:
 Request:
 ```json
 {
-    "id": "...",
+    "package_id": "...",
 }
 ```
 
@@ -78,12 +78,12 @@ Request:
 Request:
 ```json
 {
-    "id": "...", // the ID of the updated package
-    "name": "...", // all parameters are optional except id
-    "description": "...",
-    "author_name": "...",
-    "version": "...",
-    "data": "...",
+    "package_id": "...", // the ID of the updated package
+    "package_name": "...", // all parameters are optional except id
+    "package_description": "...",
+    "package_author_name": "...",
+    "package_version": "...",
+    "package_data": "...",
 }
 ```
 
@@ -106,14 +106,14 @@ Request:
 Response:
 ```json
 {
-    "id": "...",
-    "name": "...",
-    "description": "...",
-    "author_name": "...",
-    "version": "...",
-    "data": "...",
-    "created_at": "...",
-    "updated_at": "...",
+    "package_id": "...",
+    "package_name": "...",
+    "package_description": "...",
+    "package_author_name": "...",
+    "package_version": "...",
+    "package_data": "...",
+    "package_created_at": "...",
+    "package_updated_at": "...",
 }
 ```
 
@@ -133,13 +133,13 @@ Request:
 Response:
 ```json
 {
-    "id": "...",
-    "name": "...",
-    "description": "...",
-    "author_name": "...",
-    "version": "...",
-    "created_at": "...",
-    "updated_at": "...",
+    "package_id": "...",
+    "package_name": "...",
+    "package_description": "...",
+    "package_author_name": "...",
+    "package_version": "...",
+    "package_created_at": "...",
+    "package_updated_at": "...",
 }
 ```
 
@@ -163,31 +163,31 @@ Response:
 ```json
 [
     {
-        "id": "...",
-        "name": "...",
-        "description": "...",
-        "author_name": "...",
-        "version": "...",
-        "created_at": "...",
-        "updated_at": "...",
+        "package_id": "...",
+        "package_name": "...",
+        "package_description": "...",
+        "package_author_name": "...",
+        "package_version": "...",
+        "package_created_at": "...",
+        "package_updated_at": "...",
     },
     {
-        "id": "...",
-        "name": "...",
-        "description": "...",
-        "author_name": "...",
-        "version": "...",
-        "created_at": "...",
-        "updated_at": "...",
+        "package_id": "...",
+        "package_name": "...",
+        "package_description": "...",
+        "package_author_name": "...",
+        "package_version": "...",
+        "package_created_at": "...",
+        "package_updated_at": "...",
     },
     {
-        "id": "...",
-        "name": "...",
-        "description": "...",
-        "author_name": "...",
-        "version": "...",
-        "created_at": "...",
-        "updated_at": "...",
+        "package_id": "...",
+        "package_name": "...",
+        "package_description": "...",
+        "package_author_name": "...",
+        "package_version": "...",
+        "package_created_at": "...",
+        "package_updated_at": "...",
     }
 ]
 ```
