@@ -7,7 +7,7 @@ class Schemas:
         package_description: str
         package_version: str
         package_author_name: str
-        package_data: str
+        package_data: bytes
 
     class DeletePackage(BaseModel):
         package_id: int
