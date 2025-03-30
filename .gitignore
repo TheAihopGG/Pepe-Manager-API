@@ -1,6 +1,5 @@
 *.db
 __pycache__
 .venv
-tests
 *.log
 .mypy_cache
