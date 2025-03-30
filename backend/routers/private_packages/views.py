@@ -12,7 +12,7 @@ class PrivatePackagesRouter(APIRouter):
         super().__init__(prefix=cfg["routers_prefixes"]["private_packages"])
         logging.debug("test")
 
-        @self.get("/create")
+        @self.post("/create")
         async def create_packages(schema: Schemas.CreatePackage) -> JSONResponse:
             async with aiosqlite.connect(cfg["database_path"]) as session:
                 if await CRUD.Package.create(
@@ -26,7 +26,7 @@ class PrivatePackagesRouter(APIRouter):
         @self.delete("/delete")
         async def delete_package(schema: Schemas.DeletePackage) -> JSONResponse:
             async with aiosqlite.connect(cfg["database_path"]) as session:
-                if await CRUD.Package.delete(schema.package_id):
+                if await CRUD.Package.delete(schema.package_id, session=session):
                     return JSONResponse({})
                 else:
                     return JSONResponse({}, status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -34,8 +34,9 @@ class PrivatePackagesRouter(APIRouter):
         @self.put("/update")
         async def update_package(schema: Schemas.UpdatePackage) -> JSONResponse:
             async with aiosqlite.connect(cfg["database_path"]) as session:
+                print(schema.model_fields_set)
                 if (
-                    len(schema.model_fields_set) > 2
+                    len(schema.model_fields_set) >= 2
                 ):  # user must specify an id and something else
                     if await CRUD.Package.update(
                         **schema.model_dump(),

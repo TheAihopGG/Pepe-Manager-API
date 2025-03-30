@@ -19,7 +19,16 @@ class PublicPackagesRouter(APIRouter):
                 ):
                     # add "package_" prefix to keys
                     return JSONResponse(
-                        {"package_" + key: value for [key, value] in package._asdict()}
+                        {
+                            "package_id": package.id,
+                            "package_name": package.name,
+                            "package_description": package.description,
+                            "package_version": package.version,
+                            "package_author_name": package.author_name,
+                            "package_data": str(package.data),
+                            "package_created_at": package.created_at,
+                            "package_updated_at": package.updated_at,
+                        }
                     )
                 else:
                     return JSONResponse({}, status.HTTP_404_NOT_FOUND)
@@ -33,7 +42,15 @@ class PublicPackagesRouter(APIRouter):
                 ):
                     # add "package_" prefix to keys
                     return JSONResponse(
-                        {"package_" + key: value for [key, value] in package._asdict()}
+                        {
+                            "package_id": package.id,
+                            "package_name": package.name,
+                            "package_description": package.description,
+                            "package_version": package.version,
+                            "package_author_name": package.author_name,
+                            "package_created_at": package.created_at,
+                            "package_updated_at": package.updated_at,
+                        }
                     )
                 else:
                     return JSONResponse({}, status.HTTP_404_NOT_FOUND)
@@ -45,7 +62,16 @@ class PublicPackagesRouter(APIRouter):
                     package_name=schema.package_name,
                     session=session,
                 ):
-                    return JSONResponse({"packages": packages})
+                    return JSONResponse(
+                        {
+                            "packages": list(
+                                map(
+                                    lambda package_model: package_model._asdict(),
+                                    packages,
+                                )
+                            )
+                        }
+                    )
                 else:
                     return JSONResponse({}, status.HTTP_404_NOT_FOUND)
 
