@@ -118,7 +118,6 @@ class CRUD:
                 return None
 
         @staticmethod
-        @Database.rollback_on_error
         async def delete(
             package_id: int,
             *,
