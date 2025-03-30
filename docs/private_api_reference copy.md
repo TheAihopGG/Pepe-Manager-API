@@ -43,7 +43,7 @@ All urls are relative `<domain>://private/api`
 
 |Method|Url|Description|
 |------|---|-----------|
-|GET|`/packages/create`|Creates a package|
+|POST|`/packages/create`|Creates a package|
 
 Request:
 ```json
@@ -60,7 +60,7 @@ Request:
 
 |Method|Url|Description|
 |------|---|-----------|
-|GET|`/packages/delete`|Deletes a package|
+|DELETE|`/packages/delete`|Deletes a package|
 
 Request:
 ```json
@@ -73,7 +73,7 @@ Request:
 
 |Method|Url|Description|
 |------|---|-----------|
-|GET|`/packages/update`|Updates a package|
+|PUT|`/packages/update`|Updates a package|
 
 Request:
 ```json
@@ -145,3 +145,49 @@ Response:
 
 > [!NOTE]
 > `PackageInfo` does not contain `data` property
+
+### Get Packages Infos
+
+|Method|Url|Description|
+|------|---|-----------|
+|GET|`/packages/packages_infos`|Returns packages with name|
+
+Request:
+```json
+{
+    "package_name": "<name>"
+}
+```
+
+Response:
+```json
+[
+    {
+        "id": "...",
+        "name": "...",
+        "description": "...",
+        "author_name": "...",
+        "version": "...",
+        "created_at": "...",
+        "updated_at": "...",
+    },
+    {
+        "id": "...",
+        "name": "...",
+        "description": "...",
+        "author_name": "...",
+        "version": "...",
+        "created_at": "...",
+        "updated_at": "...",
+    },
+    {
+        "id": "...",
+        "name": "...",
+        "description": "...",
+        "author_name": "...",
+        "version": "...",
+        "created_at": "...",
+        "updated_at": "...",
+    }
+]
+```
