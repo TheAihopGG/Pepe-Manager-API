@@ -3,8 +3,8 @@
 - [x] Create API Reference
 - [x] Create CRUD
 - [x] Test CRUD
-- [ ] Create private app
-- [ ] Test private app
-- [ ] Create public app
-- [ ] Test public app
+- [x] Create private app
+- [x] Test private app
+- [x] Create public app
+- [x] Test public app
 - [ ] Add docstring to .py files
