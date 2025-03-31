@@ -106,7 +106,7 @@ class TestPackageCRUD(unittest.IsolatedAsyncioTestCase):
                 package_info._asdict(),
             )
 
-    async def test_get_packages_infos(self):
+    async def test_get_packages_info(self):
         session = await aiosqlite.connect(":memory:")
         await Database.create_tables(session=session)
         created_packages = [
@@ -142,7 +142,7 @@ class TestPackageCRUD(unittest.IsolatedAsyncioTestCase):
                 created_package._asdict(),
             )
         await session.commit()
-        packages = await CRUD.Package.get_packages_infos(
+        packages = await CRUD.Package.get_packages_info(
             "test-package-stable",
             session=session,
         )

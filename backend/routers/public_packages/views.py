@@ -55,10 +55,10 @@ class PublicPackagesRouter(APIRouter):
                 else:
                     return JSONResponse({}, status.HTTP_404_NOT_FOUND)
 
-        @self.get("/packages_infos")
-        async def get_packages_infos(schema: Schemas.GetPackagesInfos) -> JSONResponse:
+        @self.get("/packages_info")
+        async def get_packages_info(schema: Schemas.GetPackagesInfos) -> JSONResponse:
             async with aiosqlite.connect(cfg["database_path"]) as session:
-                if packages := await CRUD.Package.get_packages_infos(
+                if packages := await CRUD.Package.get_packages_info(
                     package_name=schema.package_name,
                     session=session,
                 ):

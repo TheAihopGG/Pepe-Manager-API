@@ -66,7 +66,7 @@ class TestApiPrivatePackages(unittest.IsolatedAsyncioTestCase):
             session=session,
         )
 
-    async def test_get_packages_infos(self):
+    async def test_get_packages_info(self):
         session = await aiosqlite.connect(cfg["database_path"])
 
         self.assertTrue(
@@ -100,7 +100,7 @@ class TestApiPrivatePackages(unittest.IsolatedAsyncioTestCase):
             )
         )
         response = requests.get(
-            URL + "/packages_infos", json={"package_name": "TestPackage"}
+            URL + "/packages_info", json={"package_name": "TestPackage"}
         )
         self.assertTrue(response.ok)
         data = response.json()

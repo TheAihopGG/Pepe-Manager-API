@@ -70,7 +70,7 @@ class CRUD:
                     return None
 
         @staticmethod
-        async def get_packages_infos(
+        async def get_packages_info(
             package_name: str,
             *,
             session: aiosqlite.Connection,
