@@ -71,13 +71,13 @@ class CRUD:
 
         @staticmethod
         async def get_packages_infos(
-            name: str,
+            package_name: str,
             *,
             session: aiosqlite.Connection,
         ) -> list[models.PackageInfo] | None:
             async with session.execute(
                 "SELECT id, name, description, version, author_name, created_at, updated_at FROM packages WHERE name=?",
-                (name,),
+                (package_name,),
             ) as cursor:
                 result = await cursor.fetchall()
                 if result:
@@ -118,7 +118,6 @@ class CRUD:
                 return None
 
         @staticmethod
-        @Database.rollback_on_error
         async def delete(
             package_id: int,
             *,

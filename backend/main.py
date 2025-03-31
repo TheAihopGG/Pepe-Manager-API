@@ -7,7 +7,7 @@ from routers import (
     private_packages,
 )
 from contextlib import asynccontextmanager
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from core import cfg
 from services import Database
 
@@ -22,23 +22,23 @@ logging.basicConfig(
 )
 
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    async with aiosqlite.connect(cfg["database_path"]) as session:
-        await Database.create_tables(session=session)
-    yield
-
-
 class App(FastAPI):
+    @staticmethod
+    @asynccontextmanager
+    async def lifespan(app: FastAPI):
+        async with aiosqlite.connect(cfg["database_path"]) as session:
+            await Database.create_tables(session=session)
+        yield
+
     def __init__(self):
-        super().__init__()
+        super().__init__(lifespan=App.lifespan)
         self.mount("/public", PublicApp())
         self.mount("/private", PrivateApp())
 
 
 class PublicApp(FastAPI):
     def __init__(self):
-        super().__init__(lifespan=lifespan)
+        super().__init__()
         self.include_router(public_packages.router)
 
 
