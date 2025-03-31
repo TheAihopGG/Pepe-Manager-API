@@ -18,4 +18,4 @@ Pepe manager API is API for pepe manager, my test project. I have created it to 
 
 - [@TheAihopGG](https://github.com/TheAihopGG) - the realization
 
-Also see a list of [contributors](https://github.com/TheAihopGG/pepe_manager_api/graphs/contributors)
+Also see a list of [contributors](https://github.com/TheAihopGG/Pepe-Manager-Api/graphs/contributors)
